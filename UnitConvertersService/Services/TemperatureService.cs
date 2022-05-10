@@ -5,6 +5,11 @@ namespace UnitConvertersService.Services
 {
     public class TemperatureService : ITemperatureService
     {
+        public ResultInBothUnits AddTemperature(double firstValue, TemperatureUnits firstUnit, Operations operation, double secondValue, TemperatureUnits secondUnit)
+        {
+            return TemperatureUtils.AddTemperature(firstValue, firstUnit, operation, secondValue, secondUnit);
+        }
+
         public double ConvertTemperature(double value, TemperatureUnits UnitsFrom, TemperatureUnits UnitsTo)
         {
             return TemperatureUtils.ConvertTemperature(value, UnitsFrom, UnitsTo);

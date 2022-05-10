@@ -24,6 +24,22 @@ namespace UnitConvertersService.Utils
                 throw new ArgumentException();
         }
 
+        public static ResultInBothUnits AddTemperature(double firstValue, TemperatureUnits firstUnit, Operations operation, double secondValue, TemperatureUnits secondUnit)
+        {
+            ResultInBothUnits resultInBothUnits = new ResultInBothUnits();
+            double SecondValueFirstUnit = ConvertTemperature(secondValue, secondUnit, firstUnit);
+            double ResultFirstUnit = firstValue + SecondValueFirstUnit;
+            resultInBothUnits.firstValue = ResultFirstUnit;
+            resultInBothUnits.firstTemperatureUnits = firstUnit;
+
+            double FirstValueSecondUnit = ConvertTemperature(firstValue, firstUnit, secondUnit);
+            double ResultSecondUnit = secondValue + FirstValueSecondUnit;
+            resultInBothUnits.secondValue = ResultSecondUnit;
+            resultInBothUnits.secondTemperatureUnits = secondUnit;
+
+            return resultInBothUnits;
+        }
+
         public static double CelciusToFahrenheit(double value)
         {
             double Fahrenheit = 9 * value / 5 + 32;
