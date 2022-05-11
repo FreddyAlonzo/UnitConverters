@@ -20,7 +20,7 @@ namespace UnitConvertersAPI.Controllers
         /// <param name="value">Value.</param>
         /// <param name="UnitsFrom">Source units.</param>
         /// <param name="UnitsTo">Target units.</param>
-        /// <returns>Double.</returns>
+        /// <returns>TemperatureResponse.</returns>
         [HttpGet("/ConvertTemperature", Name = "ConvertTemperature")]
         public IActionResult ConvertTemperature(double value, TemperatureUnits UnitsFrom, TemperatureUnits UnitsTo)
         {

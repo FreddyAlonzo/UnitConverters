@@ -10,7 +10,7 @@ namespace UnitConvertersService.Services
             return TemperatureUtils.AddTemperature(firstValue, firstUnit, operation, secondValue, secondUnit);
         }
 
-        public double ConvertTemperature(double value, TemperatureUnits UnitsFrom, TemperatureUnits UnitsTo)
+        public TemperatureResponse ConvertTemperature(double value, TemperatureUnits UnitsFrom, TemperatureUnits UnitsTo)
         {
             return TemperatureUtils.ConvertTemperature(value, UnitsFrom, UnitsTo);
         }

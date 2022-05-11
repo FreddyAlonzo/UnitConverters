@@ -4,7 +4,7 @@ namespace UnitConvertersService.Utils
 {
     public static class TemperatureUtils
     {
-        public static double ConvertTemperature(double value, TemperatureUnits UnitsFrom, TemperatureUnits UnitsTo)
+        public static double ConvertTemperatureValue(double value, TemperatureUnits UnitsFrom, TemperatureUnits UnitsTo)
         {
             if (UnitsFrom == UnitsTo)
                 return value;
@@ -24,16 +24,37 @@ namespace UnitConvertersService.Utils
                 throw new ArgumentException();
         }
 
+        public static TemperatureResponse ConvertTemperature(double value, TemperatureUnits UnitsFrom, TemperatureUnits UnitsTo)
+        {
+            TemperatureResponse temperatureResponse = new TemperatureResponse();
+            temperatureResponse.value = ConvertTemperatureValue(value, UnitsFrom, UnitsTo);
+            temperatureResponse.units = UnitsTo;
+
+            return temperatureResponse;
+        }
+
         public static ResultInBothUnits AddTemperature(double firstValue, TemperatureUnits firstUnit, Operations operation, double secondValue, TemperatureUnits secondUnit)
         {
             ResultInBothUnits resultInBothUnits = new ResultInBothUnits();
-            double SecondValueFirstUnit = ConvertTemperature(secondValue, secondUnit, firstUnit);
-            double ResultFirstUnit = firstValue + SecondValueFirstUnit;
+            double SecondValueFirstUnit = ConvertTemperatureValue(secondValue, secondUnit, firstUnit);
+            double ResultFirstUnit;
+            if (operation == Operations.Add)
+                ResultFirstUnit = firstValue + SecondValueFirstUnit;
+            else if (operation == Operations.Subtract)
+                ResultFirstUnit = firstValue - SecondValueFirstUnit;
+            else
+                throw new ArgumentException();
             resultInBothUnits.firstValue = ResultFirstUnit;
             resultInBothUnits.firstTemperatureUnits = firstUnit;
 
-            double FirstValueSecondUnit = ConvertTemperature(firstValue, firstUnit, secondUnit);
-            double ResultSecondUnit = secondValue + FirstValueSecondUnit;
+            double FirstValueSecondUnit = ConvertTemperatureValue(firstValue, firstUnit, secondUnit);
+            double ResultSecondUnit;
+            if (operation == Operations.Add)
+                ResultSecondUnit = secondValue + FirstValueSecondUnit;
+            else if (operation == Operations.Subtract)
+                ResultSecondUnit = FirstValueSecondUnit - secondValue;
+            else
+                throw new ArgumentException();
             resultInBothUnits.secondValue = ResultSecondUnit;
             resultInBothUnits.secondTemperatureUnits = secondUnit;
 

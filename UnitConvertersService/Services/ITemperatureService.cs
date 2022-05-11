@@ -10,8 +10,8 @@ namespace UnitConvertersService.Services
         /// <param name="value">Value.</param>
         /// <param name="UnitsFrom">Source units.</param>
         /// <param name="UnitsTo">Target units.</param>
-        /// <returns>Double.</returns>
-        double ConvertTemperature(double value, TemperatureUnits UnitsFrom, TemperatureUnits UnitsTo);
+        /// <returns>TemperatureResponse.</returns>
+        TemperatureResponse ConvertTemperature(double value, TemperatureUnits UnitsFrom, TemperatureUnits UnitsTo);
 
         /// <summary>
         /// Converts and adds or subtracts temperature values given in different units.
