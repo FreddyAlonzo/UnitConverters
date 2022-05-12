@@ -18,6 +18,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<ITemperatureService, TemperatureService>();
 builder.Services.AddTransient<IWeightService, WeightService>();
 builder.Services.AddTransient<ILengthService, LengthService>();
+builder.Services.AddTransient<IHeightService, HeightService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("DefaultCORSPolicy", GenerateCorsPolicy());
