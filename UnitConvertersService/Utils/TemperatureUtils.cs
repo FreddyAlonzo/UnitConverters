@@ -8,14 +8,14 @@ namespace UnitConvertersService.Utils
         {
             if (UnitsFrom == UnitsTo)
                 return value;
-            else if (UnitsFrom == TemperatureUnits.Celcius & UnitsTo == TemperatureUnits.Fahrenheit)
-                return CelciusToFahrenheit(value);
-            else if (UnitsFrom == TemperatureUnits.Fahrenheit & UnitsTo == TemperatureUnits.Celcius)
-                return FahrenheitToCelcius(value);
-            else if (UnitsFrom == TemperatureUnits.Celcius & UnitsTo == TemperatureUnits.Kelvin)
-                return CelciusToKelvin(value);
-            else if (UnitsFrom == TemperatureUnits.Kelvin & UnitsTo == TemperatureUnits.Celcius)
-                return KelvinToCelcius(value);
+            else if (UnitsFrom == TemperatureUnits.Celsius & UnitsTo == TemperatureUnits.Fahrenheit)
+                return CelsiusToFahrenheit(value);
+            else if (UnitsFrom == TemperatureUnits.Fahrenheit & UnitsTo == TemperatureUnits.Celsius)
+                return FahrenheitToCelsius(value);
+            else if (UnitsFrom == TemperatureUnits.Celsius & UnitsTo == TemperatureUnits.Kelvin)
+                return CelsiusToKelvin(value);
+            else if (UnitsFrom == TemperatureUnits.Kelvin & UnitsTo == TemperatureUnits.Celsius)
+                return KelvinToCelsius(value);
             else if (UnitsFrom == TemperatureUnits.Fahrenheit & UnitsTo == TemperatureUnits.Kelvin)
                 return FahrenheitToKelvin(value);
             else if (UnitsFrom == TemperatureUnits.Kelvin & UnitsTo == TemperatureUnits.Fahrenheit)
@@ -61,38 +61,38 @@ namespace UnitConvertersService.Utils
             return resultInBothUnits;
         }
 
-        public static double CelciusToFahrenheit(double value)
+        public static double CelsiusToFahrenheit(double value)
         {
             double Fahrenheit = 9 * value / 5 + 32;
             return Fahrenheit;
         }
 
-        public static double FahrenheitToCelcius(double value)
+        public static double FahrenheitToCelsius(double value)
         {
             double Celcius = 5 * (value - 32) / 9;
             return Celcius;
         }
         
-        public static double CelciusToKelvin(double value)
+        public static double CelsiusToKelvin(double value)
         {
             return value + 273;
         }
 
-        public static double KelvinToCelcius(double value)
+        public static double KelvinToCelsius(double value)
         {
             return value - 273;
         }
 
         public static double FahrenheitToKelvin(double value)
         {
-            double Celcius = FahrenheitToCelcius(value);
-            return CelciusToKelvin(Celcius);
+            double Celcius = FahrenheitToCelsius(value);
+            return CelsiusToKelvin(Celcius);
         }
 
         public static double KelvinToFahrenheit(double value)
         {
-            double Celcius = KelvinToCelcius(value);
-            return CelciusToFahrenheit(Celcius);
+            double Celcius = KelvinToCelsius(value);
+            return CelsiusToFahrenheit(Celcius);
         }
     }
 }

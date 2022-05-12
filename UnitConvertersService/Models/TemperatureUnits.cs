@@ -2,7 +2,7 @@
 {
     public enum TemperatureUnits
     {
-        Celcius,
+        Celsius,
         Fahrenheit,
         Kelvin
     }
