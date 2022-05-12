@@ -2,26 +2,26 @@
 
 namespace UnitConvertersService.Services
 {
-    public interface ITemperatureService
+    public interface IWeightService
     {
         /// <summary>
-        /// Converts units of temperature.
+        /// Converts units of weight.
         /// </summary>
         /// <param name="value">Value.</param>
         /// <param name="UnitsFrom">Source units.</param>
         /// <param name="UnitsTo">Target units.</param>
-        /// <returns>TemperatureResponse.</returns>
-        TemperatureResponse ConvertTemperature(double value, TemperatureUnits UnitsFrom, TemperatureUnits UnitsTo);
+        /// <returns>WeightResponse.</returns>
+        WeightResponse ConvertWeight(double value, WeightUnits UnitsFrom, WeightUnits UnitsTo);
 
         /// <summary>
-        /// Converts and adds or subtracts temperature values given in different units.
+        /// Converts and adds or subtracts weight values given in different units.
         /// </summary>
         /// <param name="firstValue">First value.</param>
         /// <param name="firstUnit">First units.</param>
         /// <param name="operation">Type of operation.</param>
         /// <param name="secondValue">Second Value.</param>
         /// <param name="secondUnit">Second units.</param>
-        /// <returns>TemperatureResultInBothUnits.</returns>
-        TemperatureResultInBothUnits AddTemperature(double firstValue, TemperatureUnits firstUnit, Operations operation, double secondValue, TemperatureUnits secondUnit);
+        /// <returns>WeightResultInBothUnits.</returns>
+        WeightResultInBothUnits AddWeight(double firstValue, WeightUnits firstUnit, Operations operation, double secondValue, WeightUnits secondUnit);
     }
 }

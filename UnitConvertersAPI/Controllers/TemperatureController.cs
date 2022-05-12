@@ -35,7 +35,7 @@ namespace UnitConvertersAPI.Controllers
         /// <param name="operation">Type of operation.</param>
         /// <param name="secondValue">Second Value.</param>
         /// <param name="secondUnit">Second units.</param>
-        /// <returns>ResultsInBothUnits.</returns>
+        /// <returns>TemperatureResultInBothUnits.</returns>
         [HttpGet("/AddTemperature", Name = "AddTemperature")]
         public IActionResult AddTemperature(double firstValue, TemperatureUnits firstUnit, Operations operation, double secondValue, TemperatureUnits secondUnit)
         {

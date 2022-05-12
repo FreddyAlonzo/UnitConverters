@@ -33,9 +33,9 @@ namespace UnitConvertersService.Utils
             return temperatureResponse;
         }
 
-        public static ResultInBothUnits AddTemperature(double firstValue, TemperatureUnits firstUnit, Operations operation, double secondValue, TemperatureUnits secondUnit)
+        public static TemperatureResultInBothUnits AddTemperature(double firstValue, TemperatureUnits firstUnit, Operations operation, double secondValue, TemperatureUnits secondUnit)
         {
-            ResultInBothUnits resultInBothUnits = new ResultInBothUnits();
+            TemperatureResultInBothUnits resultInBothUnits = new TemperatureResultInBothUnits();
             double SecondValueFirstUnit = ConvertTemperatureValue(secondValue, secondUnit, firstUnit);
             double ResultFirstUnit;
             if (operation == Operations.Add)

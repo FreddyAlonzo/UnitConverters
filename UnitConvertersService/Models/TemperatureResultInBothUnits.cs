@@ -1,6 +1,6 @@
 ﻿namespace UnitConvertersService.Models
 {
-    public class ResultInBothUnits
+    public class TemperatureResultInBothUnits
     {
         public double firstValue { get; set; }
         public TemperatureUnits firstTemperatureUnits { get; set; }
