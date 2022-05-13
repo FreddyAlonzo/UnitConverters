@@ -87,7 +87,7 @@ namespace UnitConvertersService.Utils
                 throw new ArgumentException();
             HeightResponse MetricValue = CentimetersToResponse(ResultFirstUnit);
             resultInBothUnits.firstValue = MetricValue.value1;
-            resultInBothUnits.firstHeighttUnits = MetricValue.units1;
+            resultInBothUnits.firstHeightUnits = MetricValue.units1;
             resultInBothUnits.firstValue1 = MetricValue.value2;
             resultInBothUnits.firstHeightUnits1 = MetricValue.units2;
 
@@ -124,7 +124,7 @@ namespace UnitConvertersService.Utils
                 throw new ArgumentException();
             HeightResponse ImperialValue = InchesToResponse(ResultFirstUnit);
             resultInBothUnits.firstValue = ImperialValue.value1;
-            resultInBothUnits.firstHeighttUnits = ImperialValue.units1;
+            resultInBothUnits.firstHeightUnits = ImperialValue.units1;
             resultInBothUnits.firstValue1 = ImperialValue.value2;
             resultInBothUnits.firstHeightUnits1 = ImperialValue.units2;
 

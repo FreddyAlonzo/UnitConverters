@@ -3,7 +3,7 @@
     public class HeightResultInBothUnits
     {
         public int firstValue { get; set; }
-        public HeightUnits firstHeighttUnits { get; set; }
+        public HeightUnits firstHeightUnits { get; set; }
         public int firstValue1 { get; set; }
         public HeightUnits firstHeightUnits1 { get; set; }
         public int secondValue { get; set; }

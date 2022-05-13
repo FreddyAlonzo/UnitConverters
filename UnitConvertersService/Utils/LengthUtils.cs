@@ -8,9 +8,9 @@ namespace UnitConvertersService.Utils
         {
             if (UnitsFrom == UnitsTo)
                 return value;
-            else if (UnitsFrom == LengthUnits.Miles & UnitsTo == LengthUnits.Kilomenters)
+            else if (UnitsFrom == LengthUnits.Miles & UnitsTo == LengthUnits.Kilometers)
                 return MilesToKilometers(value);
-            else if (UnitsFrom == LengthUnits.Kilomenters & UnitsTo == LengthUnits.Miles)
+            else if (UnitsFrom == LengthUnits.Kilometers & UnitsTo == LengthUnits.Miles)
                 return KilometersToMiles(value);
             else
                 throw new ArgumentException();

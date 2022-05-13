@@ -3,6 +3,6 @@
     public enum LengthUnits
     {
         Miles,
-        Kilomenters
+        Kilometers
     }
 }
