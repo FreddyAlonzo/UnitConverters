@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="stylesheet.css" type="text/css">
+        <script src="UnitConverter.js" type="text/javascript"></script>
+        <h1>Unit Converters</h1> 
+    </head>
+    <body>
+        <div class="card">
+            <h2>Temperature</h2>
+            <div>
+                <h3>Converter</h3>
+                <input type="number" id="temperatureValue" name="temperatureValue">
+                <select id="temperatureFrom">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+                to
+                <select id="temperatureTo">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+                <button onclick="convertTemperature()">Convert</button>
+                <p id="tempResult"></p>
+            </div>
+            <div>
+                <h3>Calculator</h3>
+                <input type="number" id="temperature1" name="temperature1">
+                <select id="temperature1Unit">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+                <select id="temperatureOperator">
+                    <option value="Add">+</option>
+                    <option value="Subtract">-</option>
+                </select>
+                <input type="number" id="temperature2" name="temperature2">
+                <select id="temperature2Unit">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+                <button onclick="calculateTemperature()">Calculate</button>
+                <p id="temperatureResult1"></p>
+                <p id="temperatureResult2"></p>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Length</h2>
+            <div>
+                <h3>Converter</h3>
+                <input type="number" id="lengthValue" name="lengthValue">
+                <select id="lengthFrom">
+                    <option value="Miles">Miles</option>
+                    <option value="Kilometers">Kilometers</option>
+                </select>
+                to
+                <select id="lengthTo">
+                    <option value="Miles">Miles</option>
+                    <option value="Kilometers">Kilometers</option>
+                </select>
+                <button onclick="convertLength()">Convert</button>
+                <p id="lengthResult"></p>
+            </div>
+            <div>
+                <h3>Calculator</h3>
+                <input type="number" id="length1" name="length1">
+                <select id="length1Unit">
+                    <option value="Miles">Miles</option>
+                    <option value="Kilometers">Kilometers</option>
+                </select>
+                <select id="lengthOperator">
+                    <option value="Add">+</option>
+                    <option value="Subtract">-</option>
+                </select>
+                <input type="number" id="length2" name="length2">
+                <select id="length2Unit">
+                    <option value="Miles">Miles</option>
+                    <option value="Kilometers">Kilometers</option>
+                </select>
+                <button onclick="calculateLength()">Calculate</button>
+                <p id="lengthResult1"></p>
+                <p id="lengthResult2"></p>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Weight</h2>
+            <div>
+                <h3>Converter</h3>
+                <input type="number" id="weightValue" name="weightValue">
+                <select id="weightFrom">
+                    <option value="Pounds">Pounds</option>
+                    <option value="Kilograms">Kilograms</option>
+                </select>
+                to
+                <select id="weightTo">
+                    <option value="Pounds">Pounds</option>
+                    <option value="Kilograms">Kilograms</option>
+                </select>
+                <button onclick="convertWeight()">Convert</button>
+                <p id="weightResult"></p>
+            </div>
+            <div>
+                <h3>Calculator</h3>
+                <input type="number" id="weight1" name="weight1">
+                <select id="weight1Unit">
+                    <option value="Pounds">Pounds</option>
+                    <option value="Kilograms">Kilograms</option>
+                </select>
+                <select id="weightOperator">
+                    <option value="Add">+</option>
+                    <option value="Subtract">-</option>
+                </select>
+                <input type="number" id="weight2" name="weight2">
+                <select id="weight2Unit">
+                    <option value="Pounds">Pounds</option>
+                    <option value="Kilograms">Kilograms</option>
+                </select>
+                <button onclick="calculateWeight()">Calculate</button>
+                <p id="weightResult1"></p>
+                <p id="weightResult2"></p>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Height</h2>
+            <div>
+                <h3>Converter</h3>
+                Type of conversion 
+                <select onchange="changeHeightConversion()" id="heightConversionType">
+                    <option value="MetricToImperial">Metric to imperial</option>
+                    <option value="ImperialToMetric">Imperial to metric</option>
+                </select>
+                <div id="HeightMToI">
+                    <br>
+                    <input type="number" id="metersValue" name="metersValue">
+                    meters
+                    <input type="number" id="centimetersValue" name="centimetersValue">
+                    centimeters
+                    <button onclick="convertHeightToImperial()">Convert</button>
+                    <p id="imperialResult"></p>
+                </div>
+                <div id="HeightIToM" style="display: none;">
+                    <br>
+                    <input type="number" id="feetValue" name="feetValue">
+                    feet
+                    <input type="number" id="inchesValue" name="inchesValue">
+                    inches
+                    <button onclick="convertHeightToMetric()">Convert</button>
+                    <p id="metricResult"></p>
+                </div>
+            </div>
+            <div>
+                <h3>Calculator</h3>
+                First unit system
+                <select onchange="changeHeightCalculation()" id="firstHUnit">
+                    <option value="Metric">Metric</option>
+                    <option value="Imperial">Imperial</option>
+                </select>
+                <div id="MetricFirst">
+                    <br>
+                    <input type="number" id="metersValueA1" name="metersValueA1">
+                    meters
+                    <input type="number" id="centimetersValueA1" name="centimetersValueA1">
+                    centimeters
+                    <select id="heightOperator1">
+                        <option value="Add">+</option>
+                        <option value="Subtract">-</option>
+                    </select>
+                    <input type="number" id="feetValueA1" name="feetValueA1">
+                    feet
+                    <input type="number" id="inchesValueA1" name="inchesValueA1">
+                    inches
+                    <button onclick="heightMetricFirst()">Calculate</button>
+                    <p id="heightMetricFirstResult"></p>
+                    <p id="heightMetricFirstResult2"></p>
+                </div>
+                <div id="ImperialFirst" style="display: none;">
+                    <br>
+                    <input type="number" id="feetValueA2" name="feetValueA2">
+                    feet
+                    <input type="number" id="inchesValueA2" name="inchesValueA2">
+                    inches
+                    <select id="heightOperator2">
+                        <option value="Add">+</option>
+                        <option value="Subtract">-</option>
+                    </select>
+                    <input type="number" id="metersValueA2" name="metersValueA2">
+                    meters
+                    <input type="number" id="centimetersValueA2" name="centimetersValueA2">
+                    centimeters
+                    <button onclick="heightImperialFirst()">Calculate</button>
+                    <p id="heightImperialFirstResult"></p>
+                    <p id="heightImperialFirstResult2"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
