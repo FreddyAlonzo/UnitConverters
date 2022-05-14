@@ -2,6 +2,10 @@ const baseURL = ''
 // Temperature
 function convertTemperature() {
     let temperatureValue = document.getElementById("temperatureValue").value;
+    if (temperatureValue > 99999999) {
+        alert("Temperature value is too big.");
+        return;
+    }
     let unitFrom = document.getElementById("temperatureFrom").value;
     let unitTo = document.getElementById("temperatureTo").value;
     let temperatureConvert = baseURL + '/ConvertTemperature?value=' + temperatureValue + '&UnitsFrom=' + unitFrom +'&UnitsTo=' + unitTo;
@@ -24,9 +28,17 @@ function convertTemperature() {
     }
 function calculateTemperature() {
     let temperature1 = document.getElementById("temperature1").value;
+    if (temperature1 > 99999999) {
+        alert("First temperature value is too big.");
+        return;
+    }
     let temperature1Unit = document.getElementById("temperature1Unit").value;
     let temperatureOperator = document.getElementById("temperatureOperator").value;
     let temperature2 = document.getElementById("temperature2").value;
+    if (temperature2 > 99999999) {
+        alert("Second temperature value is too big.");
+        return;
+    }
     let temperature2Unit = document.getElementById("temperature2Unit").value;
     let temperatureCalculate = baseURL + '/AddTemperature?firstValue=' + temperature1 + '&firstUnit=' + temperature1Unit + '&operation=' + temperatureOperator +  '&secondValue=' + temperature2 + '&secondUnit=' + temperature2Unit;
     fetch(temperatureCalculate).then(response => {
@@ -51,6 +63,10 @@ function calculateTemperature() {
 // Length
 function convertLength() {
     let lengthValue = document.getElementById("lengthValue").value;
+    if (lengthValue > 99999999) {
+        alert("Length value is too big.");
+        return;
+    }
     let unitFrom = document.getElementById("lengthFrom").value;
     let unitTo = document.getElementById("lengthTo").value;
     let lengthConvert = baseURL + '/ConvertLength?value=' + lengthValue + '&UnitsFrom=' + unitFrom +'&UnitsTo=' + unitTo;
@@ -73,9 +89,17 @@ function convertLength() {
     }
 function calculateLength() {
     let length1 = document.getElementById("length1").value;
+    if (length1 > 99999999) {
+        alert("First length value is too big.");
+        return;
+    }
     let length1Unit = document.getElementById("length1Unit").value;
     let lengthOperator = document.getElementById("lengthOperator").value;
     let length2 = document.getElementById("length2").value;
+    if (length2 > 99999999) {
+        alert("Second length value is too big.");
+        return;
+    }
     let length2Unit = document.getElementById("length2Unit").value;
     let lengthCalculate = baseURL + '/AddLength?firstValue=' + length1 + '&firstUnit=' + length1Unit + '&operation=' + lengthOperator +  '&secondValue=' + length2 + '&secondUnit=' + length2Unit;
     fetch(lengthCalculate).then(response => {
@@ -100,6 +124,10 @@ function calculateLength() {
 // Weight
 function convertWeight() {
     let weightValue = document.getElementById("weightValue").value;
+    if (weightValue > 99999999) {
+        alert("Weight value is too big.");
+        return;
+    }
     let unitFrom = document.getElementById("weightFrom").value;
     let unitTo = document.getElementById("weightTo").value;
     let weightConvert = baseURL + '/ConvertWeight?value=' + weightValue + '&UnitsFrom=' + unitFrom +'&UnitsTo=' + unitTo;
@@ -122,9 +150,17 @@ function convertWeight() {
     }
 function calculateWeight() {
     let weight1 = document.getElementById("weight1").value;
+    if (weight1 > 99999999) {
+        alert("First weight value is too big.");
+        return;
+    }
     let weight1Unit = document.getElementById("weight1Unit").value;
     let weightOperator = document.getElementById("weightOperator").value;
     let weight2 = document.getElementById("weight2").value;
+    if (weight2 > 99999999) {
+        alert("Second weight value is too big.");
+        return;
+    }
     let weight2Unit = document.getElementById("weight2Unit").value;
     let weightCalculate = baseURL + '/AddWeight?firstValue=' + weight1 + '&firstUnit=' + weight1Unit + '&operation=' + weightOperator +  '&secondValue=' + weight2 + '&secondUnit=' + weight2Unit;
     fetch(weightCalculate).then(response => {
@@ -175,7 +211,15 @@ function changeHeightCalculation() {
 
 function convertHeightToMetric() {
     let feetValue = document.getElementById("feetValue").value;
+    if (feetValue > 999999) {
+        alert("Feet value is too big.");
+        return;
+    }
     let inchesValue = document.getElementById("inchesValue").value;
+    if (inchesValue > 999999) {
+        alert("Inches value is too big.");
+        return;
+    }
     let heightConvertToMetric = baseURL + '/ConvertHeightToMetric/?feetValue=' + feetValue + '&inchesValue=' + inchesValue;
 
     fetch(heightConvertToMetric).then(response => {
@@ -197,18 +241,30 @@ function convertHeightToMetric() {
 
 function convertHeightToImperial() {
     let metersValue = document.getElementById("metersValue").value;
+    if (metersValue > 999999) {
+        alert("Meters value is too big.");
+        return;
+    }
     let centimetersValue = document.getElementById("centimetersValue").value;
+    if (centimetersValue > 999999) {
+        alert("Centimeters value is too big.");
+        return;
+    }
     let heightConvertToImperial = baseURL + '/ConvertHeightToImperial/?metersValue=' + metersValue + '&centimetersValue=' + centimetersValue;
 
     fetch(heightConvertToImperial).then(response => {
         return response.json();
     }).then(data => {
+        var foot = "Feet";
         if(data.value1 == undefined)
         {
             document.getElementById("imperialResult").innerHTML = "Please enter a valid value.";
         }
         else {
-            let resultstr = data.value1 + " " + data.units1 + " " + data.value2 + " " + data.units2;
+            if (data.value1 == 1) {
+                foot =  "Foot";
+            }
+            let resultstr = data.value1 + " " + foot + " " + data.value2 + " " + data.units2;
             document.getElementById("imperialResult").innerHTML = resultstr;
         }
     console.log(data.error);
@@ -217,13 +273,28 @@ function convertHeightToImperial() {
     });
 }
 
-//https://localhost:7035/AddHeightMI?metersValue=2&centimetersValue=3&operations=Add&feetValue=2&inchesValue=3
 function heightMetricFirst() {
     let metersValueA1 = document.getElementById("metersValueA1").value;
+    if (metersValueA1 > 999999) {
+        alert("Meters value is too big.");
+        return;
+    }
     let centimetersValueA1 = document.getElementById("centimetersValueA1").value;
+    if (centimetersValueA1 > 999999) {
+        alert("Centimeters value is too big.");
+        return;
+    }
     let heightOperator1 = document.getElementById("heightOperator1").value;
     let feetValueA1 = document.getElementById("feetValueA1").value;
+    if (feetValueA1 > 999999) {
+        alert("Feet value is too big.");
+        return;
+    }
     let inchesValueA1 = document.getElementById("inchesValueA1").value;
+    if (inchesValueA1 > 999999) {
+        alert("Inches value is too big.");
+        return;
+    }
     let heightMetricFirst = baseURL + '/AddHeightMI?metersValue=' + metersValueA1 + '&centimetersValue=' + centimetersValueA1 + '&operation=' + heightOperator1 +  '&feetValue=' + feetValueA1 + '&inchesValue=' + inchesValueA1;
     fetch(heightMetricFirst).then(response => {
         return response.json();
@@ -235,7 +306,11 @@ function heightMetricFirst() {
         else {
             let heightResult1 = data.firstValue + " " + data.firstHeightUnits + " " + data.firstValue1 + " " + data.firstHeightUnits1;
             document.getElementById("heightMetricFirstResult").innerHTML = heightResult1;
-            let heightResult2 = data.secondValue + " " + data.secondHeightUnits + " " + data.secondValue1 + " " + data.secondHeightUnits1;
+            var foot = "Feet";
+            if (data.secondValue == 1) {
+                foot = "Foot";
+            }
+            let heightResult2 = data.secondValue + " " + foot + " " + data.secondValue1 + " " + data.secondHeightUnits1;
             document.getElementById("heightMetricFirstResult2").innerHTML = heightResult2;
         }       
     console.log(data);
@@ -244,13 +319,28 @@ function heightMetricFirst() {
     });
 }
 
-//https://localhost:7035/AddHeightMI?metersValue=2&centimetersValue=3&operations=Add&feetValue=2&inchesValue=3
 function heightImperialFirst() {
     let metersValueA2 = document.getElementById("metersValueA2").value;
+    if (metersValueA2 > 999999) {
+        alert("Meters value is too big.");
+        return;
+    }
     let centimetersValueA2 = document.getElementById("centimetersValueA2").value;
+    if (centimetersValueA2 > 999999) {
+        alert("Centimeters value is too big.");
+        return;
+    }
     let heightOperator2 = document.getElementById("heightOperator2").value;
     let feetValueA2 = document.getElementById("feetValueA2").value;
+    if (feetValueA2 > 999999) {
+        alert("Feet value is too big.");
+        return;
+    }
     let inchesValueA2 = document.getElementById("inchesValueA2").value;
+    if (inchesValueA2 > 999999) {
+        alert("Inches value is too big.");
+        return;
+    }
     let heightImperialFirst = baseURL + '/AddHeightIM?feetValue=' + feetValueA2 + '&inchesValue=' + inchesValueA2 + '&operation=' + heightOperator2 +  '&metersValue=' + metersValueA2 + '&centimetersValue=' + centimetersValueA2;
     fetch(heightImperialFirst).then(response => {
         return response.json();
@@ -260,7 +350,11 @@ function heightImperialFirst() {
             document.getElementById("heightImperialFirstResult2").innerHTML = "";
         }
         else {
-            let heightResult1 = data.firstValue + " " + data.firstHeightUnits + " " + data.firstValue1 + " " + data.firstHeightUnits1;
+            var foot = "Feet";
+            if (data.firstValue == 1) {
+                foot = "Foot";
+            }
+            let heightResult1 = data.firstValue + " " + foot + " " + data.firstValue1 + " " + data.firstHeightUnits1;
             document.getElementById("heightImperialFirstResult").innerHTML = heightResult1;
             let heightResult2 = data.secondValue + " " + data.secondHeightUnits + " " + data.secondValue1 + " " + data.secondHeightUnits1;
             document.getElementById("heightImperialFirstResult2").innerHTML = heightResult2;
