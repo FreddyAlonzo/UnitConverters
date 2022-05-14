@@ -14,7 +14,7 @@ Note: Visual Studio must have the ASP.NET and web development component.
 
 To run the program in Visual Studio Code:
 1. Clone the repository and open the folder in Visual Studio Code.
-2. Trust and install the SSL certificate using the following command in the terminal. <code>dotnet dev-certs https --trust</code>
+2. Trust and install the SSL certificate using the following command in the terminal. <br> <code>dotnet dev-certs https --trust</code>
 3. Click Run and Debug.
 4. When running the program for the first time a warning will show up asking to add missing assets, click "Yes".
 5. Select the UnitConvertersAPI project.
